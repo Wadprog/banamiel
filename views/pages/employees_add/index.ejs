@@ -1,0 +1,90 @@
+<%- layout('blank') -%>
+<div class="card">
+  <div class="card-header border-0">
+    <h3 class="card-title">Agregar empleado</h3>
+    <div class="card-tools">
+      <a href="#" class="btn btn-tool btn-sm">
+        <i class="fas fa-plus"></i>
+        Nueva
+      </a>
+      <a href="#" class="btn btn-tool btn-sm">
+        <i class="fas fa-sort"></i>
+        Ordenar
+      </a>
+      <a href="#" class="btn btn-tool btn-sm">
+        <i class="fas fa-filter"></i>
+        Filtrar
+      </a>
+    </div>
+  </div>
+
+  <form action="/employees" method="post" enctype="multipart/form-data">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="" class="text-muted">Foto de perfil</label>
+            <input type="file" class="form-control" name="avatar" id="avatar" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" name="nombre" />
+          </div>
+          <div class="form-group">
+            <label for="">Apellidos</label>
+            <input type="text" class="form-control" name="apellido" />
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="">Documentos</label>
+            <input type="file" class="form-control" name="documentos" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Salario</label>
+            <input type="text" class="form-control" name="salario" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Nivel de accesso</label>
+            <input type="text" class="form-control" />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Fecha nacimiento</label>
+            <input type="text" class="form-control" name="fechaNacimiento" />
+          </div>
+          <div class="form-group">
+            <label for="">Fecha nacimiento</label>
+            <input type="text" class="form-control" name="rol" />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Bio</label>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary">Siguiente</button>
+    </div>
+  </form>
+</div>

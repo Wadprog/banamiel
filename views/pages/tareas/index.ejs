@@ -1,0 +1,88 @@
+<% layout('blank') -%>
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Tareas</h3>
+    <div class="card-tools">
+      <a href="/todos/new">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <table class="table table-striped todos">
+      <thead>
+        <tr>
+          <th style="width: 1%">#</th>
+          <th style="width: 20%">Nombre</th>
+          <th style="width: 30%">Lista de Miembros</th>
+         
+          <th style="width: 8%" class="text-center">Estado</th>
+          <th style="width: 20%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i =0; i<tareas.length; i++) {%>
+        <tr>
+          <td><%=tareas[i].id%></td>
+          <td>
+            <a href="/todos/<%=tareas[i].id%>"><%=tareas[i].nombre%> </a>
+            <br />
+            <small> Creado: <%=tareas[i].createdAt%> </small>
+          </td>
+          <td>
+            <ul class="list-inline">
+              <li class="list-inline-item">
+                <img
+                  alt="Avatar"
+                  class="table-avatar"
+                  src="../../dist/img/avatar.png"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Avatar"
+                  class="table-avatar"
+                  src="../../dist/img/avatar2.png"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Avatar"
+                  class="table-avatar"
+                  src="../../dist/img/avatar3.png"
+                />
+              </li>
+              <li class="list-inline-item">
+                <img
+                  alt="Avatar"
+                  class="table-avatar"
+                  src="../../dist/img/avatar04.png"
+                />
+              </li>
+            </ul>
+          </td>
+        
+          <td class="project-state">
+            <span class="badge badge-success"><%=tareas[i].estado%></span>
+          </td>
+          <td class="project-actions text-right">
+            <a class="btn btn-primary btn-sm" href="/todos/<%=tareas[i].id%>">
+              <i class="fas fa-folder"> </i>
+              Ver
+            </a>
+            <a class="btn btn-info btn-sm" href="/todos/<%=tareas[i].id%>/edit">
+              <i class="fas fa-pencil-alt"> </i>
+              Editar
+            </a>
+            <a class="btn btn-danger btn-sm" href="/todos/<%=tareas[i].id%>/delete">
+              <i class="fas fa-trash"> </i>
+              Borrar
+            </a>
+          </td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>

@@ -1,0 +1,179 @@
+
+
+<% layout('blank') -%>
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Detalles de la planificacion</h3>
+
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-8 order-2 order-md-1">
+              <div class="row">
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Budgeto estimado</span>
+                      <span class="info-box-number text-center text-muted mb-0"> $<%= planificacion.budgeto_estimado%></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Total gastado</span>
+                      <span class="info-box-number text-center text-muted mb-0">$<%= planificacion.budgeto_gastado%></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-sm-4">
+                  <div class="info-box bg-light">
+                    <div class="info-box-content">
+                      <span class="info-box-text text-center text-muted">Duracion estimado</span>
+                      <span class="info-box-number text-center text-muted mb-0"><%= planificacion.duracion_estimado%> Horas <span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <h4>Actividad Reciente</h4>
+                    <div class="post">
+                      <div class="user-block">
+                        <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                        <span class="username">
+                          <a href="#">Jonathan Burke Jr.</a>
+                        </span>
+                        <span class="description">Shared publicly - 7:45 PM today</span>
+                      </div>
+                      <!-- /.user-block -->
+                      <p>
+                        Lorem ipsum represents a long-held tradition for designers,
+                        typographers and the like. Some people hate it and argue for
+                        its demise, but others ignore.
+                      </p>
+
+                      <p>
+                        <a href="#" class="link-black text-sm"><i class="fas fa-link mr-1"></i> Demo File 1 v2</a>
+                      </p>
+                    </div>
+
+                    
+
+                   
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
+              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> <%=planificacion.nombre%></h3>
+              <p class="text-muted"><%=planificacion.descripcion%></p>
+              <br>
+              
+              <div class="card">
+<div class="card-header ui-sortable-handle" style="cursor: move;">
+<h3 class="card-title">
+<i class="ion ion-clipboard mr-1"></i>
+Tareas
+</h3>
+<div class="card-tools">
+<ul class="pagination pagination-sm">
+<li class="page-item"><a href="#" class="page-link">«</a></li>
+<li class="page-item"><a href="#" class="page-link">1</a></li>
+<li class="page-item"><a href="#" class="page-link">2</a></li>
+<li class="page-item"><a href="#" class="page-link">3</a></li>
+<li class="page-item"><a href="#" class="page-link">»</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="card-body">
+<ul class="todo-list ui-sortable" data-widget="todo-list">
+  <% for (var tareaIterator= 0; tareaIterator< tareas.length;tareaIterator++) { %> 
+<li>
+
+<span class="handle ui-sortable-handle">
+<i class="fas fa-ellipsis-v"></i>
+<i class="fas fa-ellipsis-v"></i>
+</span>
+
+<div class="icheck-primary d-inline ml-2">
+<button 
+class="btn btn-secondary btn-sm"
+onclick="location.href='/todos/<%= tareas[tareaIterator].id %>/edit?completado=<%= !tareas[tareaIterator].completado %>'
+"
+>
+<i class="fas fa-<%= tareas[tareaIterator].completado?  'check-square':'square' %> "></i>
+</button>
+<label for="todoCheck1"></label>
+</div>
+
+<span class="text"> <%= tareas[tareaIterator].nombre %> </span>
+
+<div class="tools">
+<i class="fas fa-plus"></i>
+</div>
+</li>
+
+<% } %> 
+</ul>
+</div>
+
+<div class="card-footer clearfix">
+<a href="/todos/new?planificacionId=<%= planificacion.id %>" type="button" class="btn btn-primary text-white float-right"><i class="fas fa-plus"></i> Nueva tarea</a>
+</div>
+</div>
+              <h5 class="mt-5 text-muted">Documentos del projecto</h5>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i> Email-from-flatbal.mln</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
+                </li>
+                <li>
+                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
+                </li>
+              </ul>
+                <h5 class="mt-5 text-muted">Empleados associados</h5>
+              <ul class="list-unstyled">
+                  <% tareas.forEach((tarea)=>{ %>
+                <li>
+                  <a href="/employees/<%= tarea.employees[0].id %>" class="btn-link text-secondary">
+                    <div class="user-block">
+                       
+                      
+                           <img class="img-circle img-bordered-sm mr-2" src="<%= tarea.employees[0].imagenProfile %>"> 
+                        <span class="username text-truncate" style="max-width: 15px;">
+                          <a href="/employees/<%= tarea.employees[0].id %>"> <%= tarea.employees[0].apellido %>.</a>
+                        </span>
+                        <span class="description">Agregado  - 7:45 PM today</span>
+                     
+                      </div>
+                  
+                  </a>
+                </li>
+                   <% }) %>
+               
+              </ul>
+
+             
+              <div class="text-center mt-5 mb-3">
+                <a href="#" class="btn btn-sm btn-primary">Agregar Documentos files</a>
+                <a href="#" class="btn btn-sm btn-warning">Cancelar planificacion</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+ 
+ 
+
+  

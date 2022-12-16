@@ -1,0 +1,28 @@
+<head>
+  <%- include('./partials/head'); %>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <%- include('./partials/header'); %>
+    <!-- /.navbar -->
+
+    <%- include('./partials/sideNav'); %>
+    <div class="content-wrapper">
+      <%#-include('partials/alert.ejs')%> <%-
+      include('partials/pageHeader.ejs')%>
+      <!-- Main content -->
+      <section class="content">
+        <!-- Default box -->
+        <%- body -%>
+        <!-- /.card -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+  </div>
+</body>
+
+<!-- Site wrapper -->
+
+<%- include('partials/footer.ejs') %>

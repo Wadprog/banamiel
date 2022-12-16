@@ -1,0 +1,116 @@
+<% layout('blank') -%>
+<div class="card">
+  <div class="card-header border-0">
+    <h3 class="card-title">Lista de empleados</h3>
+    <div class="card-tools">
+      <a href="/employees/new" class="btn btn-tool btn-sm">
+        <i class="fas fa-plus"></i>
+        Nueva
+      </a>
+      <a href="#" class="btn btn-tool btn-sm">
+        <i class="fas fa-sort"></i>
+        Ordenar
+      </a>
+      <a href="#" class="btn btn-tool btn-sm">
+        <i class="fas fa-filter"></i>
+        Filtrar
+      </a>
+    </div>
+  </div>
+  <div class="card-body table-responsive p-0">
+    <table class="table table-striped table-valign-middle">
+      <thead>
+        <tr>
+          <th class="text-muted">Nombre</th>
+          <th class="text-muted">Posicion</th>
+          <th class="text-muted">Ultimo dia de trabajo</th>
+          <th class="text-muted">Nivel de accesso</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% 
+        const empleados = employees.map(e=> {
+          const {id, apellido, rol, createdAt,updatedAt, } = e
+          const {nombre} = e.entidad
+          return {id, apellido, rol, createdAt, updatedAt, nombre}
+        })
+          %>
+        
+   
+         
+ 
+        <% for(var i =0; i<empleados.length; i++){%>
+        <tr class="bg-white">
+          
+          <td>
+            <img
+              src="<%=employees[i].imagenProfile%>"
+              alt="<%=empleados[i].nombre%>"
+              class="img-circle img-size-32 mr-2"
+            />
+            <a href="/employees/<%=empleados[i].id%>">
+        <%=empleados[i].nombre %> <%=empleados[i].apellido  %>
+        </a>
+          <div >
+            <small>
+              <p class="text-muted text-sm ml-2">  Desde hace un ano</p>
+            </small>
+          
+          </div>
+          </td>
+          <td><%=empleados[i].rol %>
+          <div >
+            <small>
+              <p class="text-muted text-sm">  Desde hace un ano</p>
+            </small>
+          
+          </div>
+          </td>
+          <td>
+           
+          <%#=employees[i].lastShift %>
+          <div >
+            <small>
+              <p class="text-muted text-sm ml-2">  6:30pm</p>
+            </small>
+          
+          </div>
+          </td>
+
+          <td>
+           <span class="badge badge-warning">
+             <%#=employees[i].accessLevel %>
+            </span>
+          </td>
+       
+
+           <td>
+           
+           <i class="fas fa-ellipsis-v"></i>
+        
+          </td>
+        </tr>
+        <%}%>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-footer">
+    <div class="d-flex ml-auto">
+      <div class="d-flex">
+        <div class="p-2">
+          <a href="#" class="btn btn-sm btn-primary">
+            <i class="fas fa-chevron-left"></i>
+        
+          </a>
+        </div>
+        <div class="p-2">
+          <a href="#" class="btn btn-sm btn-primary">
+          
+            <i class="fas fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

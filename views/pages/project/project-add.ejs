@@ -1,0 +1,95 @@
+<% layout('blank') -%>
+
+<!-- Main content -->
+<form method="post" action="/projects">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Informacion general</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="inputName">Nombre Planificacion/Projecto</label>
+            <input
+              type="text"
+              id="inputName"
+              class="form-control"
+              name="nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <textarea
+              id="inputDescription"
+              class="form-control"
+              rows="4"
+              name="descripcion"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="inputStatus">Estado</label>
+            <select class="form-control custom-select" name="estado">
+              <option selected disabled>Select one</option>
+              <option>En progresso</option>
+              <option>Cancelado</option>
+              <option>Exitoso</option>
+            </select>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <div class="col-md-6">
+      <div class="card card-secondary">
+        <div class="card-header">
+          <h3 class="card-title">Budgeto tiempo y financiero</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="inputEstimatedBudget">Budgeto estimado</label>
+            <input
+              type="number"
+              id="inputEstimatedBudget"
+              class="form-control"
+              name="budgeto_estimado"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputSpentBudget">Total Gastado</label>
+            <input
+              type="number"
+              id="inputSpentBudget"
+              class="form-control"
+              name="budgeto_gastado"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputEstimatedDuration"
+              >Duration estimado (horas)</label
+            >
+            <input
+              type="number"
+              id="inputEstimatedDuration"
+              class="form-control"
+              name="duracion_estimado"
+            />
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <a href="/" class="btn btn-secondary">Cancelar</a>
+      <input
+        type="submit"
+        value="Crear Planificacion"
+        class="btn btn-success float-right"
+      />
+    </div>
+  </div>
+</form>

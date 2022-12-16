@@ -1,0 +1,73 @@
+<% layout('blank') -%>
+
+<!-- Main content -->
+<form method="post" action="/todos">
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Nueva tarea</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="inputName">Titulo</label>
+            <input
+              type="text"
+              id="inputName"
+              class="form-control"
+              name="nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputDescription">Description</label>
+            <textarea
+              id="inputDescription"
+              class="form-control"
+              rows="4"
+              name="descripcion"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="inputStatus">Empleados</label>
+            <select
+              class="form-control custom-select"
+              name="employeeId"
+              
+            >
+              <option selected disabled>Select one</option>
+              <% for (var i=0; i < employees.length; i++) { %>
+              <option value="<%= employees[i].id %>"><%= employees[i].apellido %></option>
+             <% } %>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputStatus">Projecto</label>
+            <select
+              class="form-control custom-select"
+              name="planificacionId"
+              <%= planificacionId===null ?"":"readonly"%>
+            >
+             
+              <% if(planificacionId===null) { %> 
+                 <option selected disabled>Select one</option>
+              <% for (var i=0; i < projects.length; i++) { %>
+              <option value="<%= projects[i].id %>"><%= projects[i].nombre %></option>
+              <% } %>
+              <% } else { %>
+              <option value="<%= projectAssociate.id %>"><%= projectAssociate.nombre %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 float-right">
+      <a href="/todos" class="btn btn-secondary">Cancelar</a>
+      <input type="submit" value="Crear Tarea" class="btn btn-success" />
+    </div>
+  </div>
+</form>

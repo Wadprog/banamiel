@@ -1,0 +1,38 @@
+{
+  "host": "localhost",
+  "port": "SERVER_PORT",
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "secret": "NVzN5nfegppk8s042/GFYZhIl7o=",
+    "authStrategies": ["jwt", "local"],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  },
+  "dbSettings": {
+    "username": "MYSQLDB_USER",
+    "password": "MYSQLDB_PASSWORD",
+    "database": "MYSQLDB_DATABASE",
+    "dialect": "SEQUELIZE_DIALECT",
+    "host": "DB_HOST",
+    "port": "LOCAL_DB_PORT"
+  },
+
+  "mysql": "mysql://root:@localhost:3306/arg_automation"
+}
